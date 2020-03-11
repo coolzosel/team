@@ -1,0 +1,68 @@
+#roul td.the_wheel
+{
+    background-image: url(./images/wheel_back.png);
+    background-position: center;
+    background-repeat: none;
+}
+
+#roul h1, p
+{
+    margin: 0;
+}
+
+#roul a {
+    color:red;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 5%;
+    padding: 5px;
+}
+
+#roul div.power_controls
+{
+    margin-right:70px;
+}
+
+#roul div.html5_logo
+{
+    margin-left:70px;
+}
+
+/* Styles for the power selection controls */
+#roul table.power
+{
+    background-color: #cccccc;
+    cursor: pointer;
+    border:1px solid #333333;
+}
+
+#roul table.power th
+{
+    background-color: white;
+    cursor: default;
+}
+
+#roul td.pw1
+{
+    background-color: #6fe8f0;
+}
+
+#roul td.pw2
+{
+    background-color: #86ef6f;
+}
+
+#roul td.pw3
+{
+    background-color: #ef6f6f;
+}
+
+#roul .clickable
+{
+    cursor: pointer;
+}
+
+#roul .margin_bottom
+{
+    margin-bottom: 5px;
+}
