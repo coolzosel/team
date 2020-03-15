@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>Bootstrap 4 Website Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- --------------------------------- 부트스트랩 4 CDN --------------------------------- -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <!-- ------------------------------------------------------------------------------------ -->
+
+  <!-- Flickity -->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+  <!-- 웹 폰트 파일 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+  <!-- 룰렛 -->
+  <link rel="stylesheet" href="./roulette.css" type="text/css" />
+  <script type="text/javascript" src="./Winwheel.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
+
+
+  <style>
+    body {
+      position: relative;
+      padding-top: 50px;
+      font-family: "Montserrat";
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    h2 {
+      font-weight: bold;
+    }
+
+    hr {
+      border: 1px solid black;
+    }
+
+    /* 1번 째 네비 스타일 */
+    .firstNav {
+      background-color: #f9b234;
+    }
+
+    .firstNav a {
+      font-size: 1.1re;
+      text-transform: uppercase;
+      margin: 0px 5px;
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 0 0 1.1rem #000000;
+      transition: 0.3s;
+    }
+
+    .firstNav a:hover {
+      color: #333;
+    }
+
+    .custom-toggler.navbar-toggler {
+      border-color: #75675C;
+    }
+
+    .custom-toggler .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    /* 2번 째 네비 스타일 */
+    .secondNav {
+      font-size: 0.96rem;
+      padding: 0;
+      background: #f9b234;
+    }
+
+    .secondNav ul li {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .secondNav ul li a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .secondNav ul .nav-link:hover {
+      color: white;
+    }
+
+    .secondNav .dropdown {
+      position: static !important;
+    }
+
+    .secondNav .dropdown-menu {
+      box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+      margin-top: 0px !important;
+      width: 100% !important;
+    }
+
+    .secondNav .dropdown-menu li:hover {
+      background: #939393;
+      color: white;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      padding-left: 8px;
+      font-size: 1.1rem;
+    }
+
+    .secondNav .dropdown-menu a:hover {
+      background-color: white;
+      width: 96%;
+    }
+
+    .secondNav .dropdown:hover>.dropdown-menu {
+      display: block;
+    }
+
+    /* 자동 드롭다운 */
+
+    /* 사이드바1 스타일 */
+    .aside1Btn {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      color: #f9b234;
+      font-weight: bold;
+      background-color: #75675C;
+      font-size: 0.9rem;
+      padding: 0px 6px 6px 6px;
+    }
+
+    .aside1Btn:hover {
+      color: white;
+    }
+
+    .aside1hr {
+      border: 3px solid #75675C;
+    }
+
+    #aside1 {
+      background-color: #75675C;
+    }
+
+    #aside1 .card {
+      background-color: #75675C;
+      border: #75675C;
+    }
+
+    #aside1 .card h4 {
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    #aside1 .card p {
+      color: #f9b234;
+    }
+
+    /* footer3 스타일 */
+    #foo3 {
+      background-color: black;
+      color: #fff;
+      font-size: 0.8rem;
+    }
+
+    #foo3 a {
+      color: #fff;
+    }
+
+    .iconYou2 {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #888;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 37px;
+      font-size: 1.5rem;
+      color: #888;
+      background-color: black;
+    }
+
+    .iconFace2 {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #888;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 38px;
+      font-size: 1.5rem;
+      color: #888;
+      background-color: black;
+    }
+
+    .iconTwit2 {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #888;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 38px;
+      font-size: 1.5rem;
+      color: #888;
+      background-color: black;
+    }
+
+    /* 캐러셀(슬라이드 쇼) 스타일 */
+    .carousel img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-cell {
+      width: 100%;
+      border: 1px solid black;
+    }
+
+    .flickity-page-dots {
+      bottom: 0px;
+    }
+
+    /* position dots in gallery */
+    .flickity-page-dots .dot {
+      width: 20px;
+      height: 20px;
+      opacity: 1;
+      background: transparent;
+      border: 2px solid white;
+      margin-bottom: 10px;
+    }
+
+    /* white circles */
+    .flickity-page-dots .dot.is-selected {
+      background: black;
+    }
+
+    /* fill-in selected dot */
+
+    /* Best Menu 스타일 */
+    #bestMenu .card {
+      border: 1px dotted #f9b234;
+    }
+
+    #bestMenu .card h4 {
+      color: #f9b234;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    #bestMenu .card p {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    /* 룰렛 스타일 */
+    #roul {
+      /* background-color: #efd0f7; */
+      background-color: #f9b234;
+    }
+
+    /* 프로모션 스타일 */
+    #promotion .card h4 {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    #promotion .card h6 {
+      font-size: 0.85rem;
+      color: grey;
+      font-weight: bold;
+    }
+
+
+    #promotion .card-text {
+      border-top: lightgrey solid 1px;
+      padding-top: 15px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    #promotion a {
+      color: black;
+    }
+
+    #promotion a:hover {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 헤더(header) : 탑 광고 / 네비게이션 바 / 헤더 -->
+  <header class="container-fluid px-0">
+    <!-- 탑 광고 / 네비게이션 바 상단 고정 -->
+    <div class="fixed-top">
+      <!-- 탑 광고 -->
+      <aside>
+        <div id="aside1" class="collapse">
+          <div class="py-2 d-flex justify-content-center">
+            <div class="card flex-sm-row flex-wrap justify-content-center align-items-center">
+              <div class="col col-md-5">
+                <img class="img-fluid" src="./images/card_donut1.png" alt="Card image">
+              </div>
+              <div class="col col-md-7 px-0">
+                <span class="badge badge-danger">NEW</span>
+                <div class="card-body card-block">
+                  <h4 class="card-title">카카오팬브라우니</h4>
+                  <p class="card-text">#카카오#브라우니</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card flex-sm-row flex-wrap">
+              <div class="col col-md-5">
+                <img class="img-fluid" src="./images/card_donut2.png" alt="Card image">
+              </div>
+              <div class="col col-md-7 px-0">
+                <span class="badge badge-danger">NEW</span>
+                <div class="card-body">
+                  <h4 class="card-title">사랑에 빠진 하트</h4>
+                  <p class="card-text">#베리#필드도넛</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <hr class="aside1hr my-0">
+        <button class="btn aside1Btn" type="button" data-toggle="collapse" data-target="#aside1">NEW MENU</button>
+      </aside>
+      <!-- 네비게이션 1 -->
+      <nav class="navbar navbar-expand-md firstNav">
+        <a class="navbar-brand" onClick="window.location.reload()" href="#">Logo</a>
+        <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse"
+          data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-md-flex justify-content-md-end text-right" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Today's Donut</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">sign up</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- 네비게이션 2 -->
+    <nav class="navbar navbar-expand secondNav">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#">Menu</a>
+          <ul class="dropdown-menu">
+            <a class="dropdown-item" href="#">
+              <li>New</li>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <li>Best</li>
+            </a>
+            <a class="dropdown-item" href="#">
+              <li>Donuts</li>
+            </a>
+            <a class="dropdown-item" href="#">
+              <li>Others</li>
+            </a>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#">Event</a>
+          <ul class="dropdown-menu">
+            <a class="dropdown-item" href="#">
+              <li>Today's Event</li>
+            </a>
+            <a class="dropdown-item" href="#">
+              <li>VIP 초이스!</li>
+            </a>
+            <a class="dropdown-item" href="#">
+              <li>Happy Birthday~</li>
+            </a>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#">Store</a>
+          <ul class="dropdown-menu">
+            <a class="dropdown-item" href="#">
+              <li>Map</li>
+            </a>
+            <a class="dropdown-item" href="#">
+              <li>Orders</li>
+            </a>
+            <a class="dropdown-item" href="#">
+              <li>Service</li>
+            </a>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#">Brand</a>
+          <ul class="dropdown-menu">
+            <a class="dropdown-item" href="#">
+              <li>Brand 소개</li>
+            </a>
+            <a class="dropdown-item" href="#">
+              <li>CF</li>
+            </a>
+            <a class="dropdown-item" href="#">
+              <li>Center</li>
+            </a>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 본문(section) -->
+  <section class="container-fluid px-0">
+    <!-- 슬라이드(Slide) -->
+    <article id="slide">
+      <!-- The slideshow -->
+      <div id="myCarousel" class="carousel js-flickity"
+        data-flickity-options='{ "wrapAround": true, "autoPlay": 2000 }'>
+        <div class="carousel-cell active">
+          <img src="https://cdn.pixabay.com/photo/2019/08/21/08/33/nose-4420535__340.jpg" alt="세트">
+        </div>
+        <div class="carousel-cell">
+          <img src="https://cdn.pixabay.com/photo/2020/02/09/11/50/donut-4832826__340.jpg" alt="치킨">
+        </div>
+        <div class="carousel-cell">
+          <img src="https://cdn.pixabay.com/photo/2020/02/09/11/49/donut-4832823__340.jpg" alt="버거">
+        </div>
+      </div>
+    </article>
+
+    <!-- 베스트 메뉴(best menu) -->
+    <article id="bestMenu" class="p-4">
+      <h2>Best Menu</h2>
+      <hr>
+      <div class="container-fluid">
+        <div class="py-2 card-deck text-center text-md-left">
+          <div class="card flex-md-row flex-wrap justify-content-center align-items-center">
+            <div class="col col-md-5">
+              <img class="img-fluid" src="./images/card_donut3.png" alt="Card image">
+            </div>
+            <div class="col col-md-7 px-0">
+              <span class="badge badge-danger">HOT</span>
+              <div class="card-body card-block">
+                <h4 class="card-title">로투스 비스코프 스프레드</h4>
+                <p class="card-text">로투스 스프레드 위에 로투스 쿠키를 통째로 올린 도넛</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card flex-md-row flex-wrap justify-content-center align-items-center">
+            <div class="col col-md-5">
+              <img class="img-fluid" src="./images/card_donut4.png" alt="Card image">
+            </div>
+            <div class="col col-md-7 px-0">
+              <span class="badge badge-danger">HOT</span>
+              <div class="card-body">
+                <h4 class="card-title">로투스 비스코프 크럼블</h4>
+                <p class="card-text">화이트 초코 위에 바삭한 로투스 크럼블을 듬뿍 올린 카라멜 도넛</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card flex-md-row flex-wrap justify-content-center align-items-center">
+            <div class="col col-md-5">
+              <img class="img-fluid" src="./images/card_donut5.png" alt="Card image">
+            </div>
+            <div class="col col-md-7 px-0">
+              <span class="badge badge-danger">HOT</span>
+              <div class="card-body">
+                <h4 class="card-title">아몬드초코크런치</h4>
+                <p class="card-text">달콤한 초콜릿과 아몬드 그리고 바삭한 크런치쿠키를 타핑한 도넛</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+
+    <article id="roul" class="container-fluid p-4">
+      <h2>이벤트 룰렛</h2>
+      <hr>
+      <div class="container d-flex justify-content-center">
+        <br />
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <div class="power_controls">
+                <br />
+                <br />
+                <table class="power" cellpadding="10" cellspacing="0">
+                  <tr>
+                    <th>Power</th>
+                  </tr>
+                  <tr>
+                    <td width="78" id="pw3" onClick="powerSelected(3);">High</td>
+                  </tr>
+                  <tr>
+                    <td id="pw2" onClick="powerSelected(2);">Med</td>
+                  </tr>
+                  <tr>
+                    <td id="pw1" onClick="powerSelected(1);">Low</td>
+                  </tr>
+                </table>
+                <br />
+                <img id="spin_button" src="./images/spin_off.png" alt="Spin" onClick="startSpin();" />
+                <br /><br />
+                &nbsp;&nbsp;<a href="#" onClick="resetWheel(); return false;">Play
+                  Again</a><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reset)
+              </div>
+            </td>
+            <td width="438" height="582" class="the_wheel" valign="center">
+              <canvas id="canvas" width="434" height="434">
+                <p style="color: white">Sorry, your browser doesn't support canvas. Please try another.</p>
+              </canvas>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </article>
+
+    <!-- 프로모션 광고 -->
+    <article id="promotion" class="flex-column p-4 ">
+      <h2>Promotion</h2>
+      <hr>
+      <div class="container-fluid container-md">
+        <div class="py-4 card-deck  text-md-left">
+
+          <!-- 광고1 -->
+          <div class="card">
+            <a href="http://www.dunkindonuts.co.kr/event/view.php?S=3834&flag=B">
+              <img class="card-img-top" src="images/1648891295.png" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">
+                  KT멤버십 더블할인
+                </h4>
+                <h6>
+                  2020-03-01 ~ 2020-03-31
+                </h6>
+                <p class="card-text">
+                  KT멤버십 더블할인! 모든품목 50% OFF!
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <!-- 광고2 -->
+          <div class="card">
+            <a href="http://www.dunkindonuts.co.kr/event/view.php?S=1061&flag=B">
+              <img class="card-img-top" src="images/1623477939.png" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">
+                  삼성카드 제휴
+                </h4>
+                <h6>
+                  2020-03-01 ~ 2020-03-31
+                </h6>
+                <p class="card-text">
+                  삼성 보너스 포인트 사용 시, 결제금액의 최대 100% 포인트 차감할인!
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <!-- 광고3 -->
+          <div class="card">
+            <a href="http://www.dunkindonuts.co.kr/event/view.php?S=622&flag=B">
+              <img class="card-img-top" src="images/1623478582.png" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">
+                  현대카드 제휴
+                </h4>
+                <h6>
+                  2020-03-01 ~ 2020-03-31
+                </h6>
+                <p class="card-text">
+                  매월 10일 M special, 현대카드 M포인트 50% 할인!
+                </p>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+
+      </div>
+    </article>
+  </section>
+
+  <!-- 푸터(footer) -->
+  <footer id="foo3" class="container-fluid  px-3 py-4">
+    <div class="row">
+      <div class="col-12 col-md-5 text-center text-md-left">
+        <h3>Logo</h3>
+        <span>서울 중구 퇴계로 173 (충무로3가 60-1)</span>
+        <br>
+        <span>Tel 02-6331-8282 | Fax 02-3775-4326</span>
+        <br>
+        <span>사업자 등록번호 111-22-33333 | (주)Logo 대표이사 김찬준</span>
+        <br>
+        <span>COPYRIGHT Ⓒ 2020 LOGO COMPANY. ALL RIGHTS RESERVED.</span>
+      </div>
+      <div class="col-12 col-md-7 ">
+        <div class="d-flex
+         justify-content-center justify-content-md-end align-items-center mt-4">
+          <a href="https://www.youtube.com/" target="_blank"><i class="fab iconYou2 mx-3">&#xf167;</i></a>
+          <a href="https://ko-kr.facebook.com/" target="_blank"><i class="fab iconFace2 mx-3">&#xf39e;</i></a>
+          <a href="https://twitter.com/?lang=ko" target="_blank"><i class="fab iconTwit2 mx-3">&#xf099;</i></a>
+        </div>
+        <div class="col navbar py-2 d-flex justify-content-center justify-content-md-end 
+         text-center">
+          <ul class="navbar-nav flex-row mt-3 ">
+            <li class="nav-item mx-md-1"><a class="nav-link" href="#">이용약관</a></li>
+            <span class="navbar-text px-1">|</span>
+            <li class="nav-item mx-md-1"><a class="nav-link" href="#">
+                개인정보취급방침</a></li>
+            <span class="navbar-text px-1">|</span>
+            <li class="nav-item mx-md-1"><a class="nav-link" href="#">법적고지</a></li>
+            <span class="navbar-text px-1">|</span>
+            <li class="nav-item mx-md-1"><a class="nav-link" href="#">채용안내</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    // 룰렛 생성 및 동작
+    let theWheel = new Winwheel({
+      'numSegments': 8,     // Specify number of segments.
+      'outerRadius': 212,   // Set outer radius so wheel fits inside the background.
+      'textFontSize': 28,    // Set font size as desired.
+      'segments':        // Define segments including colour and text.
+        [
+          { 'fillStyle': '#eae56f', 'text': 'Chocho Donut' },
+          { 'fillStyle': '#89f26e', 'text': 'Sweet Donut' },
+          { 'fillStyle': '#7de6ef', 'text': 'Coconut Donut' },
+          { 'fillStyle': '#e7706f', 'text': 'Sorry' },
+          { 'fillStyle': '#eae56f', 'text': 'Cream Donut' },
+          { 'fillStyle': '#89f26e', 'text': 'Sugar Donut' },
+          { 'fillStyle': '#7de6ef', 'text': 'Sorry' },
+          { 'fillStyle': '#e7706f', 'text': 'Banana Donut' }
+        ],
+      'animation':           // Specify the animation to use.
+      {
+        'type': 'spinToStop',
+        'duration': 15,
+        'spins': 8,
+        'callbackFinished': alertPrize,
+        'callbackSound': playSound,   // Function to call when the tick sound is to be triggered.
+        'soundTrigger': 'pin'        // Specify pins are to trigger the sound, the other option is 'segment'.
+      },
+      'pins':
+      {
+        'number': 16   // Number of pins. They space evenly around the wheel.
+      }
+    });
+
+    let audio = new Audio('./images/tick.mp3');
+
+    function playSound() {
+      audio.pause();
+      audio.currentTime = 0;
+
+      audio.play();
+    }
+
+    function alertPrize(indicatedSegment) {
+      alert("You have won " + indicatedSegment.text);
+    }
+
+    let wheelPower = 0;
+    let wheelSpinning = false;
+
+    function powerSelected(powerLevel) {
+      if (wheelSpinning == false) {
+        document.getElementById('pw1').className = "";
+        document.getElementById('pw2').className = "";
+        document.getElementById('pw3').className = "";
+
+        if (powerLevel >= 1) {
+          document.getElementById('pw1').className = "pw1";
+        }
+
+        if (powerLevel >= 2) {
+          document.getElementById('pw2').className = "pw2";
+        }
+
+        if (powerLevel >= 3) {
+          document.getElementById('pw3').className = "pw3";
+        }
+
+        wheelPower = powerLevel;
+
+        document.getElementById('spin_button').src = "./images/spin_on.png";
+        document.getElementById('spin_button').className = "clickable";
+      }
+    }
+
+    function startSpin() {
+      if (wheelSpinning == false) {
+        if (wheelPower == 1) {
+          theWheel.animation.spins = 3;
+        } else if (wheelPower == 2) {
+          theWheel.animation.spins = 8;
+        } else if (wheelPower == 3) {
+          theWheel.animation.spins = 15;
+        }
+
+        document.getElementById('spin_button').src = "./images/spin_off.png";
+        document.getElementById('spin_button').className = "";
+
+        theWheel.startAnimation();
+
+        wheelSpinning = true;
+      }
+    }
+
+    function resetWheel() {
+      theWheel.stopAnimation(false);
+      theWheel.rotationAngle = 0;
+      theWheel.draw();
+
+      document.getElementById('pw1').className = "";
+      document.getElementById('pw2').className = "";
+      document.getElementById('pw3').className = "";
+
+      wheelSpinning = false;
+    }
+
+    // Carousel 드래그 이벤트 이후 다시 autoPlay 하기
+    $('.carousel').on('select.flickity', function () { $('.carousel').flickity('playPlayer') })
+
+
+  </script>
+</body>
+
+</html>
