@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>Bootstrap 4 Website Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- --------------------------------- 부트스트랩 4 CDN --------------------------------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <!-- 웹 폰트 파일 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    <style>
+        /* 프로모션 스타일 */
+        #promotion .card h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        #promotion .card h6 {
+            font-size: 0.85rem;
+            color: grey;
+            font-weight: bold;
+        }
+
+
+        #promotion .card-text {
+            border-top: lightgrey solid 1px;
+            padding-top: 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        #promotion a {
+            color: black;
+        }
+
+        #promotion a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    
+
+
+        <!-- 프로모션 광고 -->
+        <article id="promotion" class="flex-column p-4 ">
+            <h2>Promotion</h2>
+            <hr>
+            <div class="container-fluid container-md">
+                <div class="py-4 card-deck text-md-left">
+
+                    <!-- 광고1 -->
+                    <div class="card">
+                        <a href="http://www.dunkindonuts.co.kr/event/view.php?S=3834&flag=B">
+                            <img class="card-img-top" src="images/1648891295.png" alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    KT멤버십 더블할인
+                                </h4>
+                                <h6>
+                                    2020-03-01 ~ 2020-03-31
+                                </h6>
+                                <p class="card-text">
+                                    KT멤버십 더블할인! 모든품목 50% OFF!
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 광고2 -->
+                    <div class="card">
+                        <a href="http://www.dunkindonuts.co.kr/event/view.php?S=1061&flag=B">
+                            <img class="card-img-top" src="images/1623477939.png" alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    삼성카드 제휴
+                                </h4>
+                                <h6>
+                                    2020-03-01 ~ 2020-03-31
+                                </h6>
+                                <p class="card-text">
+                                    삼성 보너스 포인트 사용 시, 결제금액의 최대 100% 포인트 차감할인!
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 광고3 -->
+                    <div class="card">
+                        <a href="http://www.dunkindonuts.co.kr/event/view.php?S=622&flag=B">
+                            <img class="card-img-top" src="images/1623478582.png" alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    현대카드 제휴
+                                </h4>
+                                <h6>
+                                    2020-03-01 ~ 2020-03-31
+                                </h6>
+                                <p class="card-text">
+                                    매월 10일 M special, 현대카드 M포인트 50% 할인!
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </article>
+
+    
+
+</body>
